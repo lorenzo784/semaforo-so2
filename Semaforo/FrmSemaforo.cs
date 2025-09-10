@@ -1,14 +1,15 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NAudio.Wave;
-using System.IO;
 
 namespace Semaforo
 {
@@ -39,6 +40,16 @@ namespace Semaforo
 
             lblColaP1.Text = "Cola P1: 0";
             lblColaP2.Text = "Cola P2: 0";
+
+            // Hacer los PictureBox redondos
+            HacerRedondo(pcbRojo);
+            HacerRedondo(pcbAmarillo);
+            HacerRedondo(pcbVerde);
+
+            HacerRedondo(pcbRojo2);
+            HacerRedondo(pcbAmarillo2);
+            HacerRedondo(pcbVerde2);
+
         }
 
         private void ConfigurarEventos()
@@ -118,7 +129,7 @@ namespace Semaforo
                     pcbAmarillo.BackColor = Color.Yellow;
                     break;
                 case EstadoSemaforo.EnEjecucion:
-                    pcbVerde.BackColor = Color.Green;
+                    pcbVerde.BackColor = ColorTranslator.FromHtml("#15BD22");
                     break;
             }
         }
@@ -295,5 +306,21 @@ namespace Semaforo
             semaforos[0].CambioDeEstado -= OnCambioEstadoSemaforo1;
             semaforos[1].CambioDeEstado -= OnCambioEstadoSemaforo2;
         }
+
+
+
+        private void HacerRedondo(PictureBox pcb)
+        {
+            // Crear un GraphicsPath para hacer la forma circular
+            GraphicsPath path = new GraphicsPath();
+
+            // Usamos AddEllipse para crear un círculo que se ajusta al tamaño del PictureBox
+            path.AddEllipse(0, 0, pcb.Width, pcb.Height);
+
+            // Asignamos la región circular al PictureBox
+            pcb.Region = new Region(path);
+        }
+
+
     }
 }
