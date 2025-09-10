@@ -49,6 +49,8 @@
             btnSensorP2 = new Button();
             label1 = new Label();
             label2 = new Label();
+            lblColaP1 = new Label();
+            lblColaP2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pcbVerde).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcbAmarillo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcbRojo).BeginInit();
@@ -272,12 +274,34 @@
             label2.TabIndex = 26;
             label2.Text = "Semaforo 2";
             // 
+            // lblColaP1
+            // 
+            lblColaP1.AutoSize = true;
+            lblColaP1.ForeColor = Color.White;
+            lblColaP1.Location = new Point(677, 313);
+            lblColaP1.Name = "lblColaP1";
+            lblColaP1.Size = new Size(38, 15);
+            lblColaP1.TabIndex = 27;
+            lblColaP1.Text = "label3";
+            // 
+            // lblColaP2
+            // 
+            lblColaP2.AutoSize = true;
+            lblColaP2.ForeColor = Color.White;
+            lblColaP2.Location = new Point(674, 577);
+            lblColaP2.Name = "lblColaP2";
+            lblColaP2.Size = new Size(38, 15);
+            lblColaP2.TabIndex = 28;
+            lblColaP2.Text = "label4";
+            // 
             // FrmSemaforo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 0);
             ClientSize = new Size(1004, 681);
+            Controls.Add(lblColaP2);
+            Controls.Add(lblColaP1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSensorP2);
@@ -303,6 +327,7 @@
             Name = "FrmSemaforo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmSemaforo";
+            FormClosing += FrmSemaforo_FormClosing_1;
             Load += FrmSemaforo_Load;
             ((System.ComponentModel.ISupportInitialize)pcbVerde).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcbAmarillo).EndInit();
@@ -336,5 +361,7 @@
         private Button btnSensorP2;
         private Label label1;
         private Label label2;
+        private Label lblColaP1;
+        private Label lblColaP2;
     }
 }
